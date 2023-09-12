@@ -1,10 +1,10 @@
-#nav-link {
+.nav-link {
   text-decoration: none;
 
   color: #777;
 }
 
-#nav-link:hover {
+.nav-link:hover {
   color: black;
   cursor: pointer;
 }

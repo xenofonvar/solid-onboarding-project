@@ -1,16 +1,13 @@
 import "./MovieDetailsCard.css";
-import { createEffect, createSignal, onMount } from "solid-js";
-import { useLocation, useParams } from "@solidjs/router";
+import { createSignal, onMount } from "solid-js";
+
 import { getMovieDetails } from "../../fetching/FetchCalls";
-function MovieDetailsCard() {
+
+function MovieDetailsCard(props) {
   const [movieDetails, setMovieDetails] = createSignal({});
-  const params = useParams();
-  const location = useLocation();
-  // Access the movieId parameter
-  const { movieId } = params;
 
   onMount(() => {
-    getMovieDetails("tt0000081").then((res) => {
+    getMovieDetails(props.movieId).then((res) => {
       setMovieDetails(res.results);
     });
   });

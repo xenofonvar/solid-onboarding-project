@@ -1,6 +1,8 @@
 import { createEffect, createSignal } from "solid-js";
 import "./NavBar.css";
+import "./../NavLink/NavLink.css";
 import NavLink from "../NavLink/NavLink";
+import { A } from "@solidjs/router";
 
 function NavBar() {
   return (
@@ -9,8 +11,12 @@ function NavBar() {
         Movies
       </h1>
       <div id="links-container">
-        <NavLink linkName={"Home"} goTo={"movie-list"} />
-        <NavLink linkName={"Favourites"} goTo={"favourites"} />
+        <A activeClass="nav-link-active" class="nav-link" href={"/"}>
+          Home
+        </A>
+        <A activeClass="nav-link-active" class="nav-link" href={"/favourites"}>
+          Favourites
+        </A>
       </div>
     </div>
   );

@@ -1,15 +1,29 @@
 import "./MovieListItem.css";
 import favouriteSelected from "./../../assets/heart-selected.png";
 import favouriteUnselected from "../../assets/heart-unselected.png";
-import { A, useNavigate } from "@solidjs/router";
-import { createSignal } from "solid-js";
+import { useNavigate } from "@solidjs/router";
+import { createSignal, onMount } from "solid-js";
+import { useFavouriteMovies } from "../../providers/FavouriteMoviesProvider";
 
 function MovieListItem(props) {
   const [isFavourite, setIsFavourite] = createSignal(false);
+  const [favouriteMovies, { removeFavouriteMovie, addFavouriteMovie }] =
+    useFavouriteMovies();
+
+  onMount(() => {
+    favouriteMovies.map((movie) => {
+      if (movie.id === props.movie.id) {
+        setIsFavourite(true);
+      }
+    });
+  });
 
   function toggleFavourite() {
     setIsFavourite((prev) => !prev);
     if (isFavourite()) {
+      addFavouriteMovie(props.movie);
+    } else {
+      removeFavouriteMovie(props.movie.id);
     }
   }
   const navigate = useNavigate();

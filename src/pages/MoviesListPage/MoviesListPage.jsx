@@ -4,15 +4,13 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import "./MoviesListPage.css";
 import { getMovies, getSearchedMovies } from "../../fetching/FetchCalls";
 import { createStore } from "solid-js/store";
-import { useFavouriteMovies } from "../../providers/FavouriteMoviesProvider";
 
 function MoviesListPage() {
   const [searchInput, setSearchInput] = createSignal("");
   const [currentPage, setCurrentPage] = createSignal(1);
   const [movies, setMovies] = createStore([]);
   const [hasMorePages, setHasMorePages] = createSignal();
-  const counter = useFavouriteMovies();
-  console.log(counter);
+
   createEffect(() => {
     if (searchInput() === "") {
       getMovies(currentPage()).then((data) => {
@@ -36,10 +34,6 @@ function MoviesListPage() {
       });
     }
   });
-
-  // createEffect(() => {
-  //   console.log(movies());
-  // });
 
   return (
     <main class="page-container">

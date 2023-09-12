@@ -1,40 +1,21 @@
-import { children, createContext, createSignal, useContext } from "solid-js";
+import { createContext, createSignal, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 
 const FavouriteMoviesContext = createContext();
 
 export function FavouriteMoviesProvider(props) {
-  const c = children(() => props.children);
-
-  const [favouriteMovies, setFavouriteMovies] = createSignal([]),
+  const [favouriteMovies, setFavouriteMovies] = createStore([]),
     counter = [
       favouriteMovies,
       {
         removeFavouriteMovie(id) {
-          setFavouriteMovies(
-            favouriteMovies().filter((movie) => movie.id != id)
-          );
+          setFavouriteMovies(favouriteMovies.filter((movie) => movie.id != id));
         },
         addFavouriteMovie(movie) {
-          setFavouriteMovies([...prev, movie]);
+          setFavouriteMovies([...favouriteMovies, movie]);
         },
       },
     ];
-
-  // function addFavouriteMovie(movie) {
-  //   setFavouriteMovies([...prev, movie]);
-  // }
-
-  // function removeFavouriteMovie(id) {
-  //   setFavouriteMovies(favouriteMovies().filter((movie) => movie.id != id));
-  // }
-  // const movieHandler = [
-  //   favouriteMovies,
-  //   {
-  //     addFavouriteMovie,
-  //     removeFavouriteMovie,
-  //   },
-  // ];
 
   return (
     <FavouriteMoviesContext.Provider value={counter}>

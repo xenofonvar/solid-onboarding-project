@@ -1,4 +1,4 @@
-import { A } from "@solidjs/router";
+import { A, useNavigate } from "@solidjs/router";
 import "./NavLink.css";
 import { createEffect, createSignal } from "solid-js";
 
@@ -9,8 +9,13 @@ function NavLink({ linkName, goTo }) {
   createEffect(() => {
     setIsActive(window.location.pathname.includes(goTo));
   });
+  const navigate = useNavigate();
   return (
-    <A class={isActive() ? "nav-link-active" : ""} id="nav-link" href={goTo}>
+    <A
+      href={goTo}
+      classList={isActive() ? "nav-link-active" : ""}
+      id="nav-link"
+    >
       <h2>{linkName}</h2>
     </A>
   );
