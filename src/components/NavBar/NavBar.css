@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar {
+  height: 50px;
+  width: 100%;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 40px;
+}
+
+#logo:hover {
+  cursor: pointer;
+}
+
+#links-container {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  justify-content: space-between;
+}

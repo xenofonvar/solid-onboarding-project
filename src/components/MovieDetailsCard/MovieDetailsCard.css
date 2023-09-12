@@ -1,0 +1,33 @@
+.movie-card {
+  height: 500px;
+  width: 60%;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+}
+#movie-img {
+  padding: 20px;
+  height: 400px;
+  max-width: 300px;
+  align-self: center;
+}
+
+#movie-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.movie-title {
+  font-size: 30px;
+}
+
+.info {
+  padding: 8px;
+}
+.movie-releaseYear {
+  font-size: 20px;
+}

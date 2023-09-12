@@ -1,0 +1,39 @@
+#movies-list {
+  margin-top: 40px;
+  width: 600px;
+  height: 700px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#movies-pagination {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-button {
+  background-color: transparent;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.pagination-arrow {
+  height: 20px;
+}
+
+.inactive-btn {
+  display: none;
+}
+
+.active-btn {
+  display: block;
+}
