@@ -27,3 +27,18 @@
   width: 250px;
   justify-content: space-between;
 }
+
+.nav-link {
+  text-decoration: none;
+  font-size: 24px;
+  color: #777;
+}
+
+.nav-link:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.nav-link-active {
+  color: black;
+}

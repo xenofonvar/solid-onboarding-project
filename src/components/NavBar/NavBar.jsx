@@ -1,7 +1,4 @@
-import { createEffect, createSignal } from "solid-js";
 import "./NavBar.css";
-import "./../NavLink/NavLink.css";
-import NavLink from "../NavLink/NavLink";
 import { A } from "@solidjs/router";
 
 function NavBar() {
